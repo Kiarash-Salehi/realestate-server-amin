@@ -105,7 +105,7 @@ router.post('/login', async (req, res) => {
 			const token = jwt.sign({ id: user[0].id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1d' });
 			res.header('Authorization', `Bearer ${token}`).status(200).json({
 				message: `شما با موفقیت وارد حساب کاربری خود شدید. خوش آمدید ${user[0].username}`,
-				token,
+				token: `Bearer ${token}`,
 				user: {
 					id: user[0].id,
 					username: user[0].username,
